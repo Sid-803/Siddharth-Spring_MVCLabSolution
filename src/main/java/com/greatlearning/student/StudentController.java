@@ -83,17 +83,4 @@ public class StudentController {
 
 	}
 
-	@RequestMapping("/search")
-	public String search(@RequestParam("name") String name, @RequestParam("country") String country, Model theModel) {
-
-		if (name.trim().isEmpty() && country.trim().isEmpty()) {
-			return "redirect:/students/list";
-		} else {
-			List<Student> theStudents = studentService.searchBy(name, country);
-			theModel.addAttribute("Students", theStudents);
-
-			return "list-Students";
-		}
-
-	}
 }
